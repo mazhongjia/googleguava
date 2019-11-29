@@ -12,6 +12,10 @@ import java.util.stream.Collectors;
 
 import static junit.framework.Assert.fail;
 
+/**
+ * @link JoinerMapTest
+ *
+ */
 public class JoinerTest {
 
     private final List<String> stringList = Arrays.asList("google","guava","java","scala");
