@@ -1,4 +1,4 @@
-package com.mzj.guava.utilites;
+package com.mzj.guava.utilites.spliter;
 
 import com.google.common.base.Splitter;
 import org.junit.Test;

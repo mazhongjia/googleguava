@@ -1,4 +1,4 @@
-package com.mzj.guava.utilites;
+package com.mzj.guava.utilites.joiner;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
