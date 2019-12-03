@@ -77,7 +77,6 @@ public class ObjectsTest {
             if (o == null || getClass() != o.getClass()) return false;
 
             Guava guava = (Guava) o;
-
             return Objects.equal(this.name,guava.name)
                     && Objects.equal(this.age,guava.age)
                     && Objects.equal(this.descr,guava.descr);
