@@ -1,4 +1,4 @@
-package com.mzj.guava.utilites.joiner;
+package com.mzj.guava.utilities.joiner;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
@@ -7,10 +7,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static junit.framework.Assert.fail;
 

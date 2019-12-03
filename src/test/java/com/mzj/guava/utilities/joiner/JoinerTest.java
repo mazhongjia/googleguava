@@ -1,4 +1,4 @@
-package com.mzj.guava.utilites.joiner;
+package com.mzj.guava.utilities.joiner;
 
 import com.google.common.base.Joiner;
 import org.junit.Test;

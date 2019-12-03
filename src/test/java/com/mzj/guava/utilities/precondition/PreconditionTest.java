@@ -1,4 +1,4 @@
-package com.mzj.guava.utilites.precondition;
+package com.mzj.guava.utilities.precondition;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
