@@ -1,4 +1,4 @@
-package com.mzj.guava.monitor;
+package com.mzj.guava.concurrent.monitor;
 
 import com.google.common.util.concurrent.Monitor;
 
