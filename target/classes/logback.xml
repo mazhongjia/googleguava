@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+    <!--配置控制台日志-->
+        <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>
+                    %d - %msg%n
+                </pattern>
+            </layout>
+        </appender>
+
+
+    <!--配置info级别文件日志-->
+    <!--info文件中只输出info级别的日志，设置方式：filter标签配置，与error不同，需要通过LevelFilter设置：在info日志设置忽略（DENY）调ERROR级别日志-->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <Level>ERROR</Level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!-- 日志滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>log\info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--配置error级别文件日志-->
+    <!--error文件中只输出error级别的日志，设置方式：filter标签配置-->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <Level>ERROR</Level>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!-- 日志滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>log\error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+
+        <root level="info">
+            <appender-ref ref="consoleLog"/>
+        </root>
+
+</configuration>
