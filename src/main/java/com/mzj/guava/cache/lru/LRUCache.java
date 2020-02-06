@@ -1,4 +1,4 @@
-package com.mzj.guava.concurrent.cache.lru;
+package com.mzj.guava.cache.lru;
 
 public interface LRUCache<K,V> {
 

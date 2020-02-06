@@ -1,10 +1,10 @@
-package com.mzj.guava.concurrent.cache.lru.linkedhashmap;
+package com.mzj.guava.cache.lru.linkedlist;
 
-import com.mzj.guava.concurrent.cache.lru.LRUCache;
+import com.mzj.guava.cache.lru.LRUCache;
 
-public class LinkedHashMapLRUCacheExample {
+public class LinkedListLRUCacheExample {
     public static void main(String[] args) {
-        LRUCache<String,String> cache = new LinkedHashMapLRUCache<>(3);
+        LRUCache<String,String> cache = new LinkedListLRUCache<>(3);
         cache.put("1","1");
         cache.put("2","2");
         cache.put("3","3");

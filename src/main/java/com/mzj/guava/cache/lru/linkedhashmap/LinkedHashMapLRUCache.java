@@ -1,7 +1,7 @@
-package com.mzj.guava.concurrent.cache.lru.linkedhashmap;
+package com.mzj.guava.cache.lru.linkedhashmap;
 
 import com.google.common.base.Preconditions;
-import com.mzj.guava.concurrent.cache.lru.LRUCache;
+import com.mzj.guava.cache.lru.LRUCache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
