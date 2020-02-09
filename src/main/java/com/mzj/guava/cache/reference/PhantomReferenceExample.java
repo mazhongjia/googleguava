@@ -1,4 +1,4 @@
-package com.mzj.guava.cache.lru.reference;
+package com.mzj.guava.cache.reference;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;

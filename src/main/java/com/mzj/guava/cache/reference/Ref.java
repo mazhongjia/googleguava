@@ -1,4 +1,4 @@
-package com.mzj.guava.cache.lru.reference;
+package com.mzj.guava.cache.reference;
 
 /**
  * 引用示例对象

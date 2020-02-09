@@ -1,9 +1,6 @@
-package com.mzj.guava.cache.lru.reference;
+package com.mzj.guava.cache.reference;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 弱引用示例2
