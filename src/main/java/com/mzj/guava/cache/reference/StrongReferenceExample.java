@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 强引用示例
+ * 强引用示例（设置：JVM启动参数：-Xmx128M -Xms64M -XX:+PrintGCDetails）
  */
 public class StrongReferenceExample {
     public static void main(String[] args) throws InterruptedException {

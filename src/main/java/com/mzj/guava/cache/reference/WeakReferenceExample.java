@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 弱引用示例
+ * 弱引用示例（设置：JVM启动参数：-Xmx128M -Xms64M -XX:+PrintGCDetails）
  *
  * 比软引用还要脆弱（容易被回收）：不论是GC还是Full GC都会被回收
  */

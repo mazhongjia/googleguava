@@ -3,7 +3,7 @@ package com.mzj.guava.cache.reference;
 import java.lang.ref.WeakReference;
 
 /**
- * 弱引用示例2
+ * 弱引用示例2（设置：JVM启动参数：-Xmx128M -Xms64M -XX:+PrintGCDetails）
  *
  *不论是GC还是Full GC(只要是执行GC，包括代码调用System.gc())都回收弱引用
  */

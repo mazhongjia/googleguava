@@ -4,7 +4,7 @@ import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 
 /**
- * 幻影引用示例2
+ * 幻影引用示例2（设置：JVM启动参数：-Xmx128M -Xms64M -XX:+PrintGCDetails）
  *
  * 1、使用时必须与ReferenceQueue一起使用
  * 2、放进去，拿不出来
