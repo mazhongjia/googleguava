@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  *  使用SoftReference解决LRU算法的OOM问题
  *
- *  本示例演示：虽然实现了LRU算法，但是实现的cache导致了OOM
+ *  本示例演示：虽然实现了LRU算法，但是实现的lru cache导致了OOM
  *
  * （设置：JVM启动参数：-Xmx128M -Xms64M -XX:+PrintGCDetails）
  */
