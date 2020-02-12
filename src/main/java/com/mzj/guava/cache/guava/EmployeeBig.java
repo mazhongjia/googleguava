@@ -2,13 +2,14 @@ package com.mzj.guava.cache.guava;
 
 import com.google.common.base.MoreObjects;
 
-public class Employee {
+public class EmployeeBig {
 
     private String name;
     private String dept;
     private String empID;
+    private final byte[] data = new byte[1024 * 1024];
 
-    public Employee(String name, String dept, String empID) {
+    public EmployeeBig(String name, String dept, String empID) {
         this.name = name;
         this.dept = dept;
         this.empID = empID;
