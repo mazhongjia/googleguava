@@ -13,7 +13,8 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
- * +
+ * 测试逐出策略1
+ *
  * 基本用法
  * <p>
  * 查询到Employee放入cache，下次从cache直接拿

@@ -10,9 +10,13 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
+/**
+ * 测试逐出策略2
+ */
 public class CacheLoaderTest2 {
 
     /**
+     *
      * CacheBuilder的expireAfterAccess接口测试
      *
      * 接口中access time会根据Write/Update/Read操作进行改变
