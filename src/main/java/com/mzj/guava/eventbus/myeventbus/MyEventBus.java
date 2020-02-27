@@ -30,6 +30,12 @@ public class MyEventBus implements Bus {
         this(busName, null, MyDispatcher.SEQ_EXECUTOR_SERVICE);
     }
 
+    /**
+     * 此构造函数设计成包级，目的是指定Executor executor的构造函数不允许外部创建，而是通过包内提供的MyAsyncEventBus实现
+     * @param busName
+     * @param exceptionHandler
+     * @param executor
+     */
     MyEventBus(String busName, MyEventExceptionHandler exceptionHandler, Executor executor) {
         this.busName = busName;
         this.dispatcher = MyDispatcher.newDispatcher(exceptionHandler, executor);

@@ -18,7 +18,7 @@ public class MySimpleListener2
     {
         try
         {
-            TimeUnit.MINUTES.sleep(10);
+            TimeUnit.MINUTES.sleep(10);//模拟耗时事件执行，实际上，尽管用异步的事件总线，也不应该占用事件发送线程处理事件，而应该由业务线程池处理，如netty的设计理念
         } catch (InterruptedException e)
         {
             e.printStackTrace();
