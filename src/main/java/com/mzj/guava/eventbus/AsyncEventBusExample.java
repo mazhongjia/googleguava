@@ -1,4 +1,4 @@
-package com.mzj.guava.eventbus.myeventbus;
+package com.mzj.guava.eventbus;
 
 import com.google.common.eventbus.AsyncEventBus;
 import com.mzj.guava.eventbus.listeners.AsyncSimpleListener;

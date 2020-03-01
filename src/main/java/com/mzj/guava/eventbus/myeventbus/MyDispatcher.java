@@ -34,6 +34,7 @@ public class MyDispatcher {
      * @param topic
      */
     public void dispatch(Bus bus, MyRegistry registry, Object event, String topic) {
+        //1、获取事件感兴趣的subscribers
         ConcurrentLinkedQueue<MySubscriber> subscribers = registry.scanSubscriber(topic);
         if (null == subscribers) {
             //事件没有感兴趣的listener
@@ -45,6 +46,7 @@ public class MyDispatcher {
             return;
         }
 
+        //2、在post线程中循环所有subscribers，找到满足条件的subscriber，调用realInvokeSubscribe方法（串行）
         subscribers.stream().filter(subscriber -> !subscriber.isDisable())//分发事件时过滤掉unbind的
                 .filter(subscriber ->
                 {
@@ -57,6 +59,7 @@ public class MyDispatcher {
     private void realInvokeSubscribe(MySubscriber subscriber, Object event, Bus bus) {
         Method subscribeMethod = subscriber.getSubscribeMethod();
         Object subscribeObject = subscriber.getSubscribeObject();
+        //3、具体调用每一个subscriber时，是交给线程池（事件线程池，非业务线程池）去执行
         executorService.execute(() ->
         {
             try {
