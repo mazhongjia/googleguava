@@ -1,5 +1,6 @@
 package com.mzj.guava.collections;
 
+import com.google.common.collect.BoundType;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Range;
 import org.junit.Test;
@@ -106,4 +107,15 @@ public class RangeExampleTest {
         NavigableMap<String, Integer> result = Maps.subMap(treeMap, Range.closed("Java", "Netty"));
         System.out.println(result);
     }
+
+    @Test
+    public void testOtherMethod(){
+        System.out.println(Range.atLeast(5));
+        System.out.println(Range.lessThan(10));
+        System.out.println(Range.atMost(10));
+        System.out.println(Range.all());
+        System.out.println(Range.downTo(10, BoundType.CLOSED));
+        System.out.println(Range.upTo(10, BoundType.CLOSED));
+    }
+
 }
