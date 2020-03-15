@@ -57,7 +57,7 @@ public class MonitorExample4Monitor {
 
         public void offer(int value) {
             try {
-                //不需要使用while循环
+                //不需要使用while循环：此处没有线程安全问题，因为monitor的enterWhen与leave之间，只允许一个线程进入
                 monitor.enterWhen(CAN_OFFER);//内部实现，其实用的就是JDK的Lock的lock + while循环，不满足条件时，block住了
                 queue.addLast(value);
             } catch (InterruptedException e) {

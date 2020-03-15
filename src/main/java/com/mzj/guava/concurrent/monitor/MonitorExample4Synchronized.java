@@ -48,7 +48,7 @@ public class MonitorExample4Synchronized {
 
         public void offer(int value) {
             synchronized (queue) {
-                //此处必须用while，否则是BUG，正式此处造成视觉不明显
+                //此处必须用while，否则是BUG，正是此处造成视觉不明显：逻辑为如果生产者生产过快，则让其等待，直到有人消费
                 while (queue.size() >= MAX) {
                     try {
                         queue.wait();
@@ -63,7 +63,7 @@ public class MonitorExample4Synchronized {
 
         public int take() {
             synchronized (queue) {
-                //此处必须用while，否则是BUG，正式此处造成视觉不明显
+                //此处必须用while，否则是BUG，正式此处造成视觉不明显：逻辑为如果消费者消费过快，则让其等待，直到有人生产
                 while (queue.isEmpty()) {
                     try {
                         queue.wait();
