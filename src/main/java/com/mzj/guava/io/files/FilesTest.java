@@ -1,11 +1,10 @@
-package com.mzj.guava.io;
+package com.mzj.guava.io.files;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;
 import com.google.common.collect.FluentIterable;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
-import com.google.common.io.CharSink;
 import com.google.common.io.FileWriteMode;
 import com.google.common.io.Files;
 import com.google.common.io.LineProcessor;
@@ -14,7 +13,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -24,18 +22,20 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 /**
+ * Guava的Files
+ *
  * @Auther: mazhongjia
- * @Date: 2019/12/10 12:36
  * @Version: 1.0
  */
 public class FilesTest {
 
-    private final String SOURCE_FILE = "D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources\\io\\source.txt";
-    private final String SOURCE_FILE1 = "D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources\\io\\source1.txt";
-    private final String TARGET_FILE = "D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources\\io\\target.txt";
+    private final String SOURCE_FILE = "E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main\\resources\\io\\source.txt";
+    private final String SOURCE_FILE1 = "E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main\\resources\\io\\source1.txt";
+    private final String TARGET_FILE = "E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main\\resources\\io\\source234.txt";
 
     /**
-     * @TODO mzj will finish this in the future
+     * 拷贝文件A内容到文件B
+     *
      * @throws IOException
      */
     @Test
@@ -45,15 +45,25 @@ public class FilesTest {
         assertThat(targetFile.exists(),equalTo(true));
     }
 
+    /**
+     * 使用JAVA nio2.0实现拷贝文件A内容到文件B
+     *
+     * @throws IOException
+     */
     @Test
     public void testCopyFilesWithJDKNio2() throws IOException {
         java.nio.file.Files.copy(
-                Paths.get("D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources","io","source.txt"),
-                Paths.get("D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources","io","target.txt"),
+                Paths.get("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main\\resources","io","source.txt"),
+                Paths.get("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main\\resources","io","target.txt"),
                 StandardCopyOption.REPLACE_EXISTING
         );
     }
 
+    /**
+     * 移动文件
+     *
+     * @throws IOException
+     */
     @Test
     public void testMoveFile() throws IOException {
         File targetFile = new File(TARGET_FILE);
@@ -61,6 +71,11 @@ public class FilesTest {
         Files.move(targetFile,new File(SOURCE_FILE));
     }
 
+    /**
+     * 将一个文件读成String
+     *
+     * @throws IOException
+     */
     @Test
     public void testToString() throws IOException {
         String expectedString = "today we will share the guava io knowledge.\n" +
@@ -72,12 +87,13 @@ public class FilesTest {
                 "the guava source code is very cleanly and nice.";
 
         List<String> strings = Files.readLines(new File(SOURCE_FILE), Charsets.UTF_8);
-        String result = Joiner.on("\n").join(strings);
+        String result = Joiner.on("\n").join(strings);//连接集合中的内容，通过\n连接
         assertThat(result,equalTo(expectedString));
     }
 
     /**
-     * 一行一行 读文件，将每一行通过LineProcessor进行处理
+     * 对文件中每一行通过LineProcessor进行处理（全读出来（Files.asCharSource）后进行处理：readLines(lineProcessor)）
+     *
      * @throws IOException
      */
     @Test
@@ -186,6 +202,9 @@ public class FilesTest {
         files.forEach(System.out::println);
     }
 
+    /**
+     * 下面代码是每次单测后，清理单测过程中产生的文件，以保证单测前后数据没有发生变化
+     */
     @After
     public void tearDown(){
         File targetFile = new File(TARGET_FILE);
