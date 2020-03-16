@@ -1,4 +1,4 @@
-today we will share the guava io knowledge.
+today we will share the guava io knowledge
 
 but only for the basic uage. if you wanted to get the more details.
 

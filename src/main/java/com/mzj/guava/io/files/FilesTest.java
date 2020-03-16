@@ -123,7 +123,8 @@ public class FilesTest {
     }
 
     /**
-     * 计算一个文件的MD5或者SHA值
+     * 计算一个文件的MD5、SHA1、SHA256值
+     *
      */
     @Test
     public void testFileMD5() throws IOException {
@@ -133,6 +134,9 @@ public class FilesTest {
 
         HashCode hashCode2 = Files.asByteSource(file).hash(Hashing.sha256());
         System.out.println(hashCode2);
+
+        HashCode hashCode3 = Files.asByteSource(file).hash(Hashing.sha1());
+        System.out.println(hashCode3);
     }
 
     /**
@@ -156,7 +160,7 @@ public class FilesTest {
      */
     @Test
     public void testFileWrite() throws IOException {
-        final String testFile = "D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources\\io\\source234.txt";
+        final String testFile = "E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\test\\resources\\io\\source234.txt";
         File sourceFile = new File(testFile);
 
         //应用程序退出时，删除文件
@@ -164,9 +168,9 @@ public class FilesTest {
 
         String content1 = "content 1";
 
-        //以追加的方式以UTF-8编码写入content1到文件
-        Files.asCharSink(sourceFile,Charsets.UTF_8, FileWriteMode.APPEND).write(content1);
-
+        //以追加的方式以UTF-8编码写入content1到文件【如果文件不存在则自动创建】
+        Files.asCharSink(sourceFile,Charsets.UTF_8, FileWriteMode.APPEND).write(content1);//追加写：FileWriteMode.APPEND
+//        Files.asCharSink(sourceFile,Charsets.UTF_8).write(content1);//不追加写，覆盖原文件
         //asCharSink是写文件
         //asCharSource是读文件
     }
