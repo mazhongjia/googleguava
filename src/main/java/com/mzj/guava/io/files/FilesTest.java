@@ -180,28 +180,40 @@ public class FilesTest {
      */
     @Test
     public void testTouchFile() throws IOException {
-        File touchFile = new File("D:\\05.workspace\\idea\\study\\googleguava\\src\\test\\resources\\io\\source2345.txt");
+        File touchFile = new File("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\test\\resources\\io\\source2345.txt");
+        //在虚拟机终止时，请求删除此抽象路径名表示的文件或目录。
         touchFile.deleteOnExit();
         Files.touch(touchFile);
         assertThat(touchFile.exists(),equalTo(true));
     }
 
     /**
-     * 递归文件夹中文件
+     * 递归文件夹中文件，输出文件或目录名
      */
     @Test
     public void testTreeFiles(){
-        File root = new File("D:\\05.workspace\\idea\\study\\googleguava\\src\\main");
+        File root = new File("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main");
+        //内部实现：双向队列
         FluentIterable<File> files = Files.fileTreeTraverser().preOrderTraversal(root);//preOrderTraversal是正序，postOrderTraversal是倒序、breadthFirstTraversal是按目录宽度从小到大排序
         files.stream().forEach(System.out::println);
     }
 
     /**
-     * 只获取目标文件夹中子
+     * 递归文件夹中文件，输出文件名
+     */
+    @Test
+    public void testTreeFilesTrue(){
+        File root = new File("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main");
+        FluentIterable<File> files = Files.fileTreeTraverser().preOrderTraversal(root).filter(File::isFile);//只要文件，不要目录
+        files.stream().forEach(System.out::println);
+    }
+
+    /**
+     * 只获取目标文件夹中子（不进行递归）
      */
     @Test
     public void testTreeFilesChild(){
-        File root = new File("D:\\05.workspace\\idea\\study\\googleguava\\src\\main");
+        File root = new File("E:\\01.study\\03.google guava\\wamgwenjun\\other\\googleguava\\src\\main");
         Iterable<File> files = Files.fileTreeTraverser().children(root);
         files.forEach(System.out::println);
     }
